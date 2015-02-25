@@ -7,8 +7,8 @@
     <ProjectGuid>{D5FBA164-3D8B-40B1-B19F-81DFFF9FF461}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>csInterviewRevision</RootNamespace>
-    <AssemblyName>csInterviewRevision</AssemblyName>
+    <RootNamespace>BasicDataStructures</RootNamespace>
+    <AssemblyName>DataStructures</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

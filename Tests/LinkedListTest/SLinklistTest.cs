@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using csInterviewRevision.BasicDataStructures.LinkedLists.Single;
+using BasicDataStructures.LinkedLists.Single;
 
 namespace LinkedListTest
 {

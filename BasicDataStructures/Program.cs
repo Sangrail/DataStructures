@@ -1,5 +1,5 @@
-﻿using csInterviewRevision.BasicDataStructures.LinkedLists.Double;
-using csInterviewRevision.BasicDataStructures.LinkedLists.Single;
+﻿using BasicDataStructures.LinkedLists.Double;
+using BasicDataStructures.LinkedLists.Single;
 using System;
 using System.Collections.Generic;
 using System.Linq;

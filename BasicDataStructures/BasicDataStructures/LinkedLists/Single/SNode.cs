@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csInterviewRevision.BasicDataStructures.LinkedLists.Single
+namespace BasicDataStructures.LinkedLists.Single
 {
     public class SNode<T>
     {

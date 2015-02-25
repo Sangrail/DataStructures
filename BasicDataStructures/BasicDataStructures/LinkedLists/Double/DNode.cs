@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csInterviewRevision.BasicDataStructures.LinkedLists.Double
+namespace BasicDataStructures.LinkedLists.Double
 {
     public class DNode<T>
     {
