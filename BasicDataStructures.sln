@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicDataStructures", "BasicDataStructures\BasicDataStructures.csproj", "{D5FBA164-3D8B-40B1-B19F-81DFFF9FF461}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedListTest", "Tests\LinkedListTest\LinkedListTest.csproj", "{5609AF99-E6F6-4948-B173-A37CF6B950FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1B51F55E-9892-4F6B-B257-A3A49658BCDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5FBA164-3D8B-40B1-B19F-81DFFF9FF461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FBA164-3D8B-40B1-B19F-81DFFF9FF461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FBA164-3D8B-40B1-B19F-81DFFF9FF461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FBA164-3D8B-40B1-B19F-81DFFF9FF461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5609AF99-E6F6-4948-B173-A37CF6B950FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5609AF99-E6F6-4948-B173-A37CF6B950FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5609AF99-E6F6-4948-B173-A37CF6B950FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5609AF99-E6F6-4948-B173-A37CF6B950FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5609AF99-E6F6-4948-B173-A37CF6B950FD} = {1B51F55E-9892-4F6B-B257-A3A49658BCDA}
+	EndGlobalSection
+EndGlobal

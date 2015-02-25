@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="csInterviewRevision.BasicDataStructures.LinkedLists.Single.SLinkedList&lt;T&gt;">
+    <Position X="1.75" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="_count" Hidden="true" />
+      <Field Name="_head" Hidden="true" />
+      <Field Name="_tail" Hidden="true" />
+      <Method Name="FindPrevious" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAwAYAAAAAABAQAAAAIAQAAAACCAABhAAI=</HashCode>
+      <FileName>BasicDataStructures\LinkedLists\Single\SLinkedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csInterviewRevision.BasicDataStructures.LinkedLists.Single.SListIterator&lt;T&gt;">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="_current" Hidden="true" />
+      <Method Name="SListIterator" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAABAAAgAAAAAAAAAAAAAIAAABAAAAAA=</HashCode>
+      <FileName>BasicDataStructures\LinkedLists\Single\SListIterator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csInterviewRevision.BasicDataStructures.LinkedLists.Single.SNode&lt;T&gt;">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <Members>
+      <Field Name="_data" Hidden="true" />
+      <Field Name="_next" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAAAAAAAAAAAAAAAAAQBAgAAAAAAAAAAA=</HashCode>
+      <FileName>BasicDataStructures\LinkedLists\Single\SNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
