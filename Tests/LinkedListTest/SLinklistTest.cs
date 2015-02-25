@@ -10,6 +10,20 @@ namespace LinkedListTest
         SLinkedList<int> linklist = new SLinkedList<int>();
 
         [TestMethod]
+        public void TestInsertAfter()
+        {
+            SNode<int> first = new SNode<int>(0);
+
+            SNode<int> second = first.InsertAfter(1);
+            second.InsertAfter(2);
+
+            Assert.AreEqual(first.Data, 0);
+            Assert.AreEqual(first.Next.Data, 1);
+            Assert.AreEqual(first.Next.Next.Data, 2);
+            Assert.AreEqual(first.Next.Next.Next, null);
+        }
+
+        [TestMethod]
         public void TestCreateEmptySLinkList()
         {
             linklist.Clear();

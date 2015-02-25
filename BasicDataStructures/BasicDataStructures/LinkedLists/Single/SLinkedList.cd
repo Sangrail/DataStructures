@@ -26,15 +26,11 @@
   </Class>
   <Class Name="csInterviewRevision.BasicDataStructures.LinkedLists.Single.SNode&lt;T&gt;">
     <Position X="3.5" Y="0.75" Width="1.5" />
-    <Members>
-      <Field Name="_data" Hidden="true" />
-      <Field Name="_next" Hidden="true" />
-    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AgAAAAAABAAAAAAAAAAAAAAAAAAAQBAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAA=</HashCode>
       <FileName>BasicDataStructures\LinkedLists\Single\SNode.cs</FileName>
     </TypeIdentifier>
   </Class>

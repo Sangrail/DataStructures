@@ -8,35 +8,32 @@ namespace csInterviewRevision.BasicDataStructures.LinkedLists.Single
 {
     public class SNode<T>
     {
-        private T _data;
-        private SNode<T> _next;
-
         public SNode(T data)
         {
-            _data = data;
-            _next = null;
+            Data = data;
+            Next = null;
         }
 
         public SNode<T> InsertAfter(T item)
         {
             SNode<T> newNode = new SNode<T>(item);
 
-            newNode._next = _next;
-            _next = newNode;
+            newNode.Next = Next;
+            Next = newNode;
 
             return newNode;
         }
 
         public SNode<T> Next
         {
-            get { return _next; }
-            set { _next = value; }
+            get;
+            set;
         }
 
         public T Data
         {
-            get { return _data; }
-            set { _data = value; }
+            get;
+            set;
         }
     }
 }
