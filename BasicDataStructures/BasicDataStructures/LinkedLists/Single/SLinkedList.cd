@@ -3,12 +3,11 @@
   <Class Name="BasicDataStructures.LinkedLists.Single.SLinkedList&lt;T&gt;">
     <Position X="1.75" Y="0.75" Width="1.5" />
     <Members>
-      <Field Name="_count" Hidden="true" />
       <Method Name="FindPrevious" Hidden="true" />
       <Property Name="Tail" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAgAYAAAAAABAQAAAAIAQAEAACCAABgAQI=</HashCode>
+      <HashCode>AAAIAAAAAAAgAYAAAAAABAQAAAAIAQAEAAACAABgAQI=</HashCode>
       <FileName>BasicDataStructures\LinkedLists\Single\SLinkedList.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

@@ -13,18 +13,22 @@ namespace BasicDataStructures.LinkedLists.Single
         public SNode<T> Head { get; private set; }
         public SNode<T> Tail { get; private set; }
 
-        int _count;
+        public int Count
+        {
+            get;
+            private set;
+        }
 
         public SLinkedList()
         {
             Head = null;
             Tail = null;
-            _count = 0;
+            Count = 0;
         }
 
         public void Append(T item)
         {
-            if (_count == 0)
+            if (Count == 0)
             {
                Head = new SNode<T>(item);
                Tail = Head;
@@ -137,6 +141,33 @@ namespace BasicDataStructures.LinkedLists.Single
             }
         }
 
+        public void Clear()
+        {
+            while (Count != 0)
+            {
+                RemoveTail();
+            }
+        }
+
+        private void Reverse(SNode<T> node)
+        {
+            if (node == null)
+                return;
+
+            Reverse(node.Next);
+
+            RemoveHead();
+            Append(node.Data);
+        }
+
+        public void Reverse()
+        {
+            Reverse(Head);
+        }
+
+
+
+        #region Enumerables
         /// <summary>
         /// This is a throw back to how the STL works for c++ - not suitable for c#
         /// Use IEnumerable/IEnumerator yield/return pattern
@@ -156,41 +187,12 @@ namespace BasicDataStructures.LinkedLists.Single
         {
             SNode<T> current = Head;
 
-            while(current != null)
+            while (current != null)
             {
                 yield return current.Data;
                 current = current.Next;
             }
         }
-
-        public void Clear()
-        {
-            while(_count != 0)
-            {
-                RemoveTail();
-            }
-        }
-
-        public void Reverse(SNode<T> node)
-        {
-            if (node == null)
-                return;
-
-            Reverse(node.Next);
-
-            RemoveHead();
-            Append(node.Data);
-        }
-
-        public void Reverse()
-        {
-            Reverse(Head);
-        }
-
-        public int Count
-        {
-            get { return _count; }
-            private set { _count = value; }
-        }
+        #endregion
     }
 }
