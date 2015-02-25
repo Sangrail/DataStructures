@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,39 +7,30 @@ using System.Threading.Tasks;
 
 namespace BasicDataStructures.LinkedLists.Single
 {
-    public class SLinkedList<T>
+    public class SLinkedList<T> : 
+        IEnumerable<T>
     {
-        SNode<T> _head;
-        SNode<T> _tail;
+        public SNode<T> Head { get; private set; }
+        public SNode<T> Tail { get; private set; }
 
         int _count;
 
         public SLinkedList()
         {
-            _head = null;
-            _tail = null;
+            Head = null;
+            Tail = null;
             _count = 0;
-        }
-
-        public SNode<T> Head
-        {
-            get { return _head; }
-        }
-
-        public SNode<T> Tail
-        {
-            get { return _tail; }
         }
 
         public void Append(T item)
         {
             if (_count == 0)
             {
-               _head = new SNode<T>(item);
-               _tail = _head;
+               Head = new SNode<T>(item);
+               Tail = Head;
             }
             else
-                _tail = _tail.InsertAfter(item);
+                Tail = Tail.InsertAfter(item);
 
             Count++;
         }
@@ -47,8 +39,13 @@ namespace BasicDataStructures.LinkedLists.Single
         {
             SNode<T> newNode = new SNode<T>(item);
 
-            newNode.Next = _head;
-            _head = newNode;
+            newNode.Next = Head;
+            Head = newNode;
+           
+            if (Count == 0)
+            {
+                Tail = Head;
+            }
 
             Count++;
         }
@@ -66,7 +63,6 @@ namespace BasicDataStructures.LinkedLists.Single
 
                 iter.MoveNext();
             }
-
             return null;
         }
 
@@ -101,41 +97,70 @@ namespace BasicDataStructures.LinkedLists.Single
 
         public void RemoveHead()
         {
-            SNode<T> temp = _head;
+            if (Count != 0)
+            {
+                Head = Head.Next;
+                Count--;
 
-            _head = _head.Next;
-
-            temp = null;
-
-            Count--;
+                if(Count == 0)
+                {
+                    Tail = null;
+                }
+            }
         }
 
         public void RemoveTail()
         {
-            SNode<T> currNode = _head;
+            SNode<T> currNode = Head;
 
-            while (currNode != null)
+            if (Count != 0)
             {
-                if (currNode.Next != null && (currNode.Next == _tail))
-                    break;
+                if (Count == 1)
+                {
+                    Head = null;
+                    Tail = null;
 
-                currNode = currNode.Next;
+                    Count = 0;
+                }
+                else
+                {
+                    while (currNode.Next != Tail)
+                    {
+                         currNode = currNode.Next;
+                    }
+
+                    currNode.Next = null;
+                    Tail = currNode;
+                    
+                    Count--;
+                }
             }
-
-            _tail = currNode;
-
-            if(_tail != null)
-                _tail.Next = null;
-            {
-                _head = null;
-            }
-
-            Count--;
         }
 
+        /// <summary>
+        /// This is a throw back to how the STL works for c++ - not suitable for c#
+        /// Use IEnumerable/IEnumerator yield/return pattern
+        /// </summary>
+        /// <returns></returns>
         public SListIterator<T> GetIterator()
         {
             return new SListIterator<T>(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            SNode<T> current = Head;
+
+            while(current != null)
+            {
+                yield return current.Data;
+                current = current.Next;
+            }
         }
 
         public void Clear()
@@ -145,7 +170,6 @@ namespace BasicDataStructures.LinkedLists.Single
                 RemoveTail();
             }
         }
-
 
         public void Reverse(SNode<T> node)
         {

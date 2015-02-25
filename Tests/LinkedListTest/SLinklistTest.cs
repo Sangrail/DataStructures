@@ -9,18 +9,42 @@ namespace LinkedListTest
     {
         SLinkedList<int> linklist = new SLinkedList<int>();
 
+
+        [TestMethod]
+        public void TestRemoveTailSingleElement()
+        {
+            linklist.Clear();
+
+            linklist.Append(10);
+            linklist.RemoveTail();
+
+            Assert.AreEqual(null, linklist.Head);
+            Assert.AreEqual(null, linklist.Tail);
+            Assert.AreEqual(0, linklist.Count);
+        }
+
+        [TestMethod]
+        public void TestRemoveTailTwoElement()
+        {
+            linklist.Clear();
+
+            linklist.Append(10);
+            linklist.Append(20);
+            linklist.RemoveTail();
+
+            Assert.AreEqual(10, linklist.Head.Data);
+            Assert.AreEqual(10, linklist.Tail.Data);
+            Assert.AreEqual(1, linklist.Count);
+        }
+
         [TestMethod]
         public void TestInsertAfter()
         {
             SNode<int> first = new SNode<int>(0);
-
             SNode<int> second = first.InsertAfter(1);
-            second.InsertAfter(2);
+            SNode<int> third  = second.InsertAfter(2);
 
-            Assert.AreEqual(first.Data, 0);
-            Assert.AreEqual(first.Next.Data, 1);
-            Assert.AreEqual(first.Next.Next.Data, 2);
-            Assert.AreEqual(first.Next.Next.Next, null);
+            ValidateListCount(first, 3);
         }
 
         [TestMethod]
@@ -38,21 +62,25 @@ namespace LinkedListTest
         {
             linklist.Clear();
 
+            linklist.Append(0);
             linklist.Append(1);
             linklist.Append(2);
             linklist.Append(3);
 
+            ValidateListCount(linklist.Head, 4);
+
             linklist.RemoveTail();
             linklist.RemoveTail();
             linklist.RemoveTail();
+            linklist.RemoveTail();
+
+            ValidateListCount(linklist.Head, 0);
 
             Assert.AreEqual(null, linklist.Head);
             Assert.AreEqual(null, linklist.Tail);
             Assert.AreEqual(0, linklist.Count);
 
-            int count = ValidateListContents(linklist);
-
-            Assert.AreEqual(count, linklist.Count);
+            ValidateListContents(linklist);            
         }
 
         [TestMethod]
@@ -66,11 +94,14 @@ namespace LinkedListTest
             linklist.Append(3);
             linklist.Append(4);
 
-            SNode<int> find11 = linklist.Find(3);
+            
 
-            Assert.AreEqual(3, find11.Data);
+            SNode<int> find3 = linklist.Find(3);
+
+            Assert.AreEqual(3, find3.Data);
 
             int count = ValidateListContents(linklist);
+            ValidateListCount(linklist.Head, 5);
 
             Assert.AreEqual(count, linklist.Count);
         }
@@ -85,6 +116,8 @@ namespace LinkedListTest
             linklist.Append(2);
             linklist.Append(3);
             linklist.Append(4);
+
+            ValidateListCount(linklist.Head, 5);
 
             SNode<int> find11 = linklist.Find(5);
 
@@ -114,6 +147,8 @@ namespace LinkedListTest
             linklist.Prepend(1);
             linklist.Prepend(0);
 
+            ValidateListCount(linklist.Head, 2);
+
             int count = ValidateListContents(linklist);
 
             Assert.AreEqual(count, linklist.Count);
@@ -129,6 +164,8 @@ namespace LinkedListTest
 
             linklist.Prepend(1);
             linklist.Prepend(0);
+
+            ValidateListCount(linklist.Head, 4);
 
             int count = ValidateListContents(linklist);
 
@@ -159,6 +196,27 @@ namespace LinkedListTest
                 iter.MoveNext();
             }
         }
+        [TestMethod]
+        public void TestRemoveHeadEmptyList()
+        {
+            linklist.Clear();
+            linklist.RemoveHead();
+
+            Assert.AreEqual(0, linklist.Count);
+            Assert.AreEqual(null, linklist.Tail);
+            Assert.AreEqual(null, linklist.Head);
+        }
+
+        [TestMethod]
+        public void TestPrependOneElementToEmptyList()
+        {
+            linklist.Clear();
+
+            linklist.Prepend(0);
+
+            Assert.AreEqual(1, linklist.Count);
+            Assert.AreEqual(linklist.Head, linklist.Tail);
+        }
 
         [TestMethod]
         public void TestClear()
@@ -176,7 +234,45 @@ namespace LinkedListTest
             Assert.AreEqual(null, linklist.Head);
             Assert.AreEqual(null, linklist.Tail);
         }
+        [TestMethod]
+        public void TestEnumerator()
+        {
+            linklist.Clear();
 
+            for (int i = 0; i < 100; i++)
+            {
+                linklist.Append(i);
+            }
+
+            int expectedVal = 0;
+
+            foreach (var integer in linklist)
+            {
+                Assert.AreEqual(expectedVal++, integer);
+            }
+        }
+
+        private static void ValidateListCount(SNode<int> head, int expectedCount)
+        {
+            int count = 0;
+            SNode<int> n = head;
+
+            while (n != null)
+            {
+                Assert.AreEqual(n.Data, count++);
+
+                n = n.Next;
+            }
+
+            Assert.AreEqual(expectedCount, count);
+        }
+
+        /// <summary>
+        /// This simple validation function assumes that data exists in the list 
+        /// in sequential, ascending order e.g. {0,1,2,3,4,5, etc...}
+        /// </summary>
+        /// <param name="linklist"></param>
+        /// <returns></returns>
         private static int ValidateListContents(SLinkedList<int> linklist)
         {
             int count = 0;

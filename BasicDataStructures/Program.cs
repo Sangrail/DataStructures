@@ -29,6 +29,19 @@ namespace csInterviewRevision
 
         static void Main(string[] args)
         {
+            SLinkedList<string> vowels = new SLinkedList<string>();
+
+            vowels.Append("a");
+            vowels.Append("e");
+            vowels.Append("i");
+            vowels.Append("o");
+            vowels.Append("u");
+
+            foreach(var vowel in vowels)
+            {
+                Console.WriteLine(vowel);
+            }
+
             Console.WriteLine("Press ANY key to continue");
             Console.ReadLine();
         }
