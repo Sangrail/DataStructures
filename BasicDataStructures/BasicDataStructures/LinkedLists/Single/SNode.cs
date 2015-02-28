@@ -24,16 +24,8 @@ namespace BasicDataStructures.LinkedLists.Single
             return newNode;
         }
 
-        public SNode<T> Next
-        {
-            get;
-            set;
-        }
+        public SNode<T> Next { get; set; }
 
-        public T Data
-        {
-            get;
-            set;
-        }
+        public T Data { get; set; }
     }
 }

@@ -165,8 +165,6 @@ namespace BasicDataStructures.LinkedLists.Single
             Reverse(Head);
         }
 
-
-
         #region Enumerables
         /// <summary>
         /// This is a throw back to how the STL works for c++ - not suitable for c#
