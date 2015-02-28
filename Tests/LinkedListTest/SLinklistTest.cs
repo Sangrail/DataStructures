@@ -9,7 +9,32 @@ namespace LinkedListTest
     {
         SLinkedList<int> linklist = new SLinkedList<int>();
 
+        [TestMethod]
+        public void TestVowelList()
+        {
+            SLinkedList<string> vowels = new SLinkedList<string>();
 
+            vowels.Append("a");
+            vowels.Append("e");
+            vowels.Append("i");
+            vowels.Append("o");
+            vowels.Append("u");
+
+            SNode<string> head = vowels.Head;
+
+            var it = vowels.GetIterator();
+
+            Assert.AreEqual("a", it.GetData()); it.MoveNext();
+            Assert.AreEqual("e", it.GetData()); it.MoveNext();
+            Assert.AreEqual("i", it.GetData()); it.MoveNext();
+            Assert.AreEqual("o", it.GetData()); it.MoveNext();
+            Assert.AreEqual("u", it.GetData()); it.MoveNext();
+
+            //foreach (var vowel in vowels)
+            //{
+            //    Console.WriteLine(vowel);
+            //}
+        }
         [TestMethod]
         public void TestRemoveTailSingleElement()
         {
