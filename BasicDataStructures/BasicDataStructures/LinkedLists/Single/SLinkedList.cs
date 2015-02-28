@@ -94,9 +94,8 @@ namespace BasicDataStructures.LinkedLists.Single
             if(found != null)
             {
                 found.Next = found.Next.Next;
+                Count--;
             }
-
-            Count--;
         }
 
         public void RemoveHead()
@@ -181,6 +180,10 @@ namespace BasicDataStructures.LinkedLists.Single
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// This is the C# way to iterate (enumerate) elements
+        /// </summary>
+        /// <returns></returns>
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             SNode<T> current = Head;
