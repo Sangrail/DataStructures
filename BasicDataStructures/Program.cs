@@ -7,7 +7,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csInterviewRevision
+namespace BasicDataStructures
 {
     class Program
     {
