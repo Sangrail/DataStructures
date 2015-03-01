@@ -60,7 +60,7 @@ namespace BasicDataStructures.LinkedLists.Single
 
             while (iter.IsValid())
             {
-                SNode<T> curr = iter.Get();
+                SNode<T> curr = iter.GetNode();
 
                 if (EqualityComparer<T>.Default.Equals(curr.Data, item))
                     return curr;
@@ -76,7 +76,7 @@ namespace BasicDataStructures.LinkedLists.Single
 
             while (iter.IsValid())
             {
-                SNode<T> curr = iter.Get();
+                SNode<T> curr = iter.GetNode();
 
                 if (curr.Next != null && EqualityComparer<T>.Default.Equals(curr.Next.Data, item))
                     return curr;
@@ -175,6 +175,10 @@ namespace BasicDataStructures.LinkedLists.Single
             return new SListIterator<T>(this);
         }
 
+        /// <summary>
+        /// NOt sure what to do with this yet.
+        /// </summary>
+        /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();

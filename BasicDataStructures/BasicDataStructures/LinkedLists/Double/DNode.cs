@@ -39,10 +39,16 @@ namespace BasicDataStructures.LinkedLists.Double
         {
             DNode<T> newNode = new DNode<T>(item);
 
+            newNode.Prev = Prev;
 
+            if (Prev != null)
+            {
+                Prev = newNode;
+            }
+            
+            newNode.Next = this;
 
-
-            throw new NotImplementedException();
+            return newNode;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace BasicDataStructures.LinkedLists.Single
             return _current.Data;
         }
 
-        public SNode<T> Get()
+        public SNode<T> GetNode()
         {
             return _current;
         }

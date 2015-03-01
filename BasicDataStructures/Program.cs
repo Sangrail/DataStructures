@@ -30,26 +30,32 @@ namespace BasicDataStructures
 
         static void Main(string[] args)
         {
-            //SLinkedList<string> vowels = new SLinkedList<string>();
-
-            //vowels.Append("a");
-            //vowels.Append("e");
-            //vowels.Append("i");
-            //vowels.Append("o");
-            //vowels.Append("u");
-
-            //foreach(var vowel in vowels)
-            //{
-            //    Console.WriteLine(vowel);
-            //}
-
             DLinkedList<int> dll = new DLinkedList<int>();
 
-            DNode<int> n1 = new DNode<int>(0);
+            dll.Append(1);
+            dll.Append(2);
+            dll.Append(3);
 
-            n1.InsertAfter(1);
+            dll.Prepend(0);
+
+            var it = dll.GetIterator();
+
+            while(it.IsValid())
+            {
+                Console.WriteLine("{0}", it.GetData());
+                it.MoveNext();
+            }
 
 
+            DNode<int> t = dll.Tail;
+
+            while(t!=null)
+            {
+                Console.WriteLine("{0}", t.Data);
+
+                t = t.Prev;
+            }
+           
             Console.WriteLine("Press ANY key to continue");
             Console.ReadLine();
         }
