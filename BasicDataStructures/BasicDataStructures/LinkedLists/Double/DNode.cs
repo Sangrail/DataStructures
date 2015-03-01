@@ -41,10 +41,8 @@ namespace BasicDataStructures.LinkedLists.Double
 
             newNode.Prev = Prev;
 
-            if (Prev != null)
-            {
-                Prev = newNode;
-            }
+            Prev = newNode;
+            
             
             newNode.Next = this;
 
