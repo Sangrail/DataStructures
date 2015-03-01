@@ -8,31 +8,31 @@ namespace BasicDataStructures.LinkedLists.Single
 {
     public class SListIterator<T>
     {
-        SNode<T> _current;
+        public SNode<T> Current { get; private set; }
 
         public SListIterator(SLinkedList<T> list)
         {
-            _current = list.Head;
+            Current = list.Head;
         }
 
         public void MoveNext()
         {
-            _current = _current.Next;
+            Current = Current.Next;
         }
 
         public bool IsValid()
         {
-            return (_current != null);
+            return (Current != null);
         }
 
         public T GetData()
         {
-            return _current.Data;
+            return Current.Data;
         }
 
         public SNode<T> GetNode()
         {
-            return _current;
+            return Current;
         }
     }
 }

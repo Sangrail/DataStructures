@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BasicDataStructures.LinkedLists.Double.DLinkedList&lt;T&gt;">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAIAAAAAAAAQAAAAAAQAAAAACAAAAAAI=</HashCode>
+      <FileName>BasicDataStructures\LinkedLists\Double\DLinkedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicDataStructures.LinkedLists.Double.DNode&lt;T&gt;">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAABAAAAAAAAAQFAAAAAAAAAAAAA=</HashCode>
+      <FileName>BasicDataStructures\LinkedLists\Double\DNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicDataStructures.LinkedLists.Double.DListIterator&lt;T&gt;">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAEAiAAAAAEAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>BasicDataStructures\LinkedLists\Double\DListIterator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

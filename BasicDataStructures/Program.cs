@@ -31,11 +31,12 @@ namespace BasicDataStructures
         static void Main(string[] args)
         {
             DLinkedList<int> dll = new DLinkedList<int>();
-
-            dll.Append(1);
+ 
             dll.Append(2);
             dll.Append(3);
+            dll.Append(4);
 
+            dll.Prepend(1);
             dll.Prepend(0);
 
             var it = dll.GetIterator();

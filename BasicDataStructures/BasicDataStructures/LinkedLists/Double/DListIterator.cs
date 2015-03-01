@@ -8,36 +8,36 @@ namespace BasicDataStructures.LinkedLists.Double
 {
     public class DListIterator<T>
     {
-        DNode<T> _current;
+        public DNode<T> Current { get; private set; }
 
         public DListIterator(DLinkedList<T> list)
         {
-            _current = list.Head;
+            Current = list.Head;
         }
 
         public void MoveNext()
         {
-            _current = _current.Next;
+            Current = Current.Next;
         }
 
         public void MovePrev()
         {
-            _current = _current.Prev;
+            Current = Current.Prev;
         }
 
         public bool IsValid()
         {
-            return (_current != null);
+            return (Current != null);
         }
 
         public T GetData()
         {
-            return _current.Data;
+            return Current.Data;
         }
 
         public DNode<T> GetNode()
         {
-            return _current;
+            return Current;
         }
     }
 }

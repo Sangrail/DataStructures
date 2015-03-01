@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BasicDataStructures\LinkedLists\Double\DoublyLinkedList.cd" />
     <None Include="BasicDataStructures\LinkedLists\Single\SLinkedList.cd" />
     <None Include="BasicDataStructures\LinkedLists\Diagrams.vsdx" />
   </ItemGroup>
