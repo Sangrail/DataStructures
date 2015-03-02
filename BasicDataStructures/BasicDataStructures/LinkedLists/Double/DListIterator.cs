@@ -9,20 +9,36 @@ namespace BasicDataStructures.LinkedLists.Double
     public class DListIterator<T>
     {
         public DNode<T> Current { get; private set; }
+        public DNode<T> Head { get; private set; }
+        public DNode<T> Tail { get; private set; }
 
         public DListIterator(DLinkedList<T> list)
         {
             Current = list.Head;
+            Head = list.Head;
+            Tail = list.Tail;
+        }
+
+        public void Start()
+        {
+            Current = Head;
+        }
+
+        public void End()
+        {
+            Current = Tail;
         }
 
         public void MoveNext()
         {
-            Current = Current.Next;
+            if(IsValid())
+                Current = Current.Next;
         }
 
         public void MovePrev()
         {
-            Current = Current.Prev;
+            if (IsValid())
+                Current = Current.Prev;
         }
 
         public bool IsValid()
@@ -32,7 +48,10 @@ namespace BasicDataStructures.LinkedLists.Double
 
         public T GetData()
         {
-            return Current.Data;
+            if (IsValid())
+                return Current.Data;
+            else
+                throw new Exception("Data not available: node is null");
         }
 
         public DNode<T> GetNode()

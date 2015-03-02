@@ -34,31 +34,51 @@ namespace BasicDataStructures
  
             dll.Append(2);
             dll.Append(3);
+            dll.Append(3);
             dll.Append(4);
 
             dll.Prepend(1);
             dll.Prepend(0);
 
+            PrintForwardList(dll);
+
+            PrintReverseList(dll);
+
+            dll.Remove(3);
+
+            PrintForwardList(dll);
+           
+            Console.WriteLine("Press ANY key to continue");
+            Console.ReadLine();
+        }
+
+        private static void PrintForwardList(DLinkedList<int> dll)
+        {
+            Console.WriteLine("");
+
             var it = dll.GetIterator();
 
-            while(it.IsValid())
+            it.Start();
+
+            while (it.IsValid())
             {
                 Console.WriteLine("{0}", it.GetData());
                 it.MoveNext();
             }
+        }
 
+        private static void PrintReverseList(DLinkedList<int> dll)
+        {
+            Console.WriteLine("");
 
-            DNode<int> t = dll.Tail;
+            var itr = dll.GetIterator();
+            itr.End();
 
-            while(t!=null)
+            while (itr.IsValid())
             {
-                Console.WriteLine("{0}", t.Data);
-
-                t = t.Prev;
+                Console.WriteLine("{0}", itr.GetData());
+                itr.MovePrev();
             }
-           
-            Console.WriteLine("Press ANY key to continue");
-            Console.ReadLine();
         }
     }
 }

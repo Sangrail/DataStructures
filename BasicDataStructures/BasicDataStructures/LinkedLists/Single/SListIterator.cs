@@ -10,14 +10,23 @@ namespace BasicDataStructures.LinkedLists.Single
     {
         public SNode<T> Current { get; private set; }
 
+        public SNode<T> Head { get; private set; }
+
         public SListIterator(SLinkedList<T> list)
         {
             Current = list.Head;
+            Head = list.Head;
+        }
+
+        public void Start()
+        {
+            Current = Head;
         }
 
         public void MoveNext()
         {
-            Current = Current.Next;
+            if (IsValid())
+                Current = Current.Next;
         }
 
         public bool IsValid()
@@ -27,7 +36,10 @@ namespace BasicDataStructures.LinkedLists.Single
 
         public T GetData()
         {
-            return Current.Data;
+            if (IsValid())
+                return Current.Data;
+            else
+                throw new Exception("Data not available: node is null");
         }
 
         public SNode<T> GetNode()

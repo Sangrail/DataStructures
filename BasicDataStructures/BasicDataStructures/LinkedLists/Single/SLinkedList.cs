@@ -146,6 +146,9 @@ namespace BasicDataStructures.LinkedLists.Single
             {
                 RemoveTail();
             }
+
+            Head = null;
+            Tail = null;
         }
 
         private void Reverse(SNode<T> node)
@@ -162,6 +165,11 @@ namespace BasicDataStructures.LinkedLists.Single
         public void Reverse()
         {
             Reverse(Head);
+        }
+
+        public bool IsEmpty()
+        {
+            return (Count == 0);
         }
 
         #region Enumerables

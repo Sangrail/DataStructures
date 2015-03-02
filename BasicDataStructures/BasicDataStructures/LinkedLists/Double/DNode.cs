@@ -24,9 +24,9 @@ namespace BasicDataStructures.LinkedLists.Double
         {
             DNode<T> newNode = new DNode<T>(item);
 
-            newNode.Next = Next;
             newNode.Prev = this;
-
+            newNode.Next = Next;
+            
             if (Next != null)
                 Next.Prev = newNode;
             
