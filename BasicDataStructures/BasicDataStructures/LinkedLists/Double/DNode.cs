@@ -48,5 +48,13 @@ namespace BasicDataStructures.LinkedLists.Double
 
             return newNode;
         }
+
+        public void Reverse()
+        {
+            var temp = Prev;
+
+            Prev = Next;
+            Next = temp;
+        }
     }
 }

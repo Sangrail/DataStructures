@@ -87,7 +87,7 @@ namespace BasicDataStructures.LinkedLists.Single
             return null;
         }
 
-        public void Remove(T item)
+        public SNode<T> Remove(T item)
         {
             SNode<T> found = FindPrevious(item);
 
@@ -96,6 +96,13 @@ namespace BasicDataStructures.LinkedLists.Single
                 found.Next = found.Next.Next;
                 Count--;
             }
+
+            return found;
+        }
+
+        public void RemoveAll(T item)
+        {
+            while (Remove(item) != null) { }
         }
 
         public void RemoveHead()

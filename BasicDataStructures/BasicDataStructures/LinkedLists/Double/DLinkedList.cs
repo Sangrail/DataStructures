@@ -12,6 +12,7 @@ namespace BasicDataStructures.LinkedLists.Double
         IEnumerable<T>
     {
         public DNode<T> Head { get; private set; }
+
         public DNode<T> Tail { get; private set; }
 
         public int Count
@@ -54,41 +55,6 @@ namespace BasicDataStructures.LinkedLists.Double
 
             Count++;
         }
-
-        #region Enumerables
-        /// <summary>
-        /// This is a throw back to how the STL works for c++ - not suitable for c#
-        /// Use IEnumerable/IEnumerator yield/return pattern
-        /// </summary>
-        /// <returns></returns>
-        public DListIterator<T> GetIterator()
-        {
-            return new DListIterator<T>(this);
-        }
-        /// <summary>
-        /// NOt sure what to do with this yet.
-        /// </summary>
-        /// <returns></returns>
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// This is the C# way to iterate (enumerate) elements
-        /// </summary>
-        /// <returns></returns>
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            DNode<T> current = Head;
-
-            while (current != null)
-            {
-                yield return current.Data;
-                current = current.Next;
-            }
-        }   
-        #endregion
 
         public void RemoveHead()
         {
@@ -181,5 +147,60 @@ namespace BasicDataStructures.LinkedLists.Double
         {
             while (Remove(item) != null) { }
         }
+
+        public void Reverse()
+        {
+            var iter = GetIterator();
+
+            while (iter.IsValid())
+            {
+                var n = iter.GetNode();
+                
+                n.Reverse();
+
+                if(n.Next==null)
+                    Tail = n;
+
+                if (n.Prev == null)
+                    Head = n;
+
+                iter.MovePrev();
+            }
+           
+        }
+        #region Enumerables
+        /// <summary>
+        /// This is a throw back to how the STL works for c++ - not suitable for c#
+        /// Use IEnumerable/IEnumerator yield/return pattern
+        /// </summary>
+        /// <returns></returns>
+        public DListIterator<T> GetIterator()
+        {
+            return new DListIterator<T>(this);
+        }
+        /// <summary>
+        /// NOt sure what to do with this yet.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// This is the C# way to iterate (enumerate) elements
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            DNode<T> current = Head;
+
+            while (current != null)
+            {
+                yield return current.Data;
+                current = current.Next;
+            }
+        }
+        #endregion
     }
 }

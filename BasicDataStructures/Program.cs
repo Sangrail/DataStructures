@@ -34,13 +34,6 @@ namespace BasicDataStructures
         {
             DLinkedList<int> dll = new DLinkedList<int>();
 
-            using (Stream stream = File.Open("data.bin", FileMode.Open))
-            {
-                BinaryFormatter bin = new BinaryFormatter();
-
-                var lizards2 = (DLinkedList<int>)bin.Deserialize(stream);                
-            }
- 
             dll.Append(2);
             dll.Append(3);
             dll.Append(4);
@@ -50,16 +43,31 @@ namespace BasicDataStructures
 
             PrintForwardList(dll);
 
+            dll.Reverse();
+
+            PrintForwardList(dll);
+
+            Console.WriteLine("Press ANY key to continue");
+            Console.ReadLine();
+        }
+
+        private static void LoadDll()
+        {
+            using (Stream stream = File.Open("data.bin", FileMode.Open))
+            {
+                BinaryFormatter bin = new BinaryFormatter();
+
+                var lizards2 = (DLinkedList<int>)bin.Deserialize(stream);
+            }
+        }
+
+        private static void SaveDLL(DLinkedList<int> dll)
+        {
             using (Stream stream = File.Open("data.bin", FileMode.Create))
             {
                 BinaryFormatter bin = new BinaryFormatter();
                 bin.Serialize(stream, dll);
             }
-
-            
-           
-            Console.WriteLine("Press ANY key to continue");
-            Console.ReadLine();
         }
 
         private static void PrintForwardList(DLinkedList<int> dll)
