@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BasicDataStructures.LinkedLists.Single
 {
-    public class SLinkedList<T> : 
+    public sealed class SLinkedList<T> : 
         IEnumerable<T>
     {
         public SNode<T> Head { get; private set; }

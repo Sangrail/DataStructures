@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BasicDataStructures.LinkedLists.Double
 {
     [Serializable()]
-    public class DNode<T>
+    public sealed class DNode<T>
     {
         public T Data { get; set; }
 

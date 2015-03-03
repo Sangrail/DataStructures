@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BasicDataStructures.LinkedLists.Single
 {
-    public class SNode<T>
+    public sealed class SNode<T>
     {
         public SNode(T data)
         {

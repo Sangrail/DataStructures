@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BasicDataStructures.LinkedLists.Double
 {
     [Serializable()]
-    public class DLinkedList<T> :
+    public sealed class DLinkedList<T> :
         IEnumerable<T>
     {
         public DNode<T> Head { get; private set; }

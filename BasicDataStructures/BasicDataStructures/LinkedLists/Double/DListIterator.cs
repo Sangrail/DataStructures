@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BasicDataStructures.LinkedLists.Double
 {
-    public class DListIterator<T>
+    public sealed class DListIterator<T>
     {
         public DNode<T> Current { get; private set; }
         public DNode<T> Head { get; private set; }

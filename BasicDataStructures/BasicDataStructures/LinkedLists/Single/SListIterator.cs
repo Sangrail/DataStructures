@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BasicDataStructures.LinkedLists.Single
 {
-    public class SListIterator<T>
+    public sealed class SListIterator<T>
     {
         public SNode<T> Current { get; private set; }
 
