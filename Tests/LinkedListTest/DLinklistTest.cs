@@ -78,5 +78,13 @@ namespace LinkedListTest
 
             Assert.AreEqual(3, linklist.Count);
         }
+
+        [TestMethod]
+        public void RemoveHeadEmpty()
+        {
+            linklist.Clear();
+            linklist.RemoveHead();
+            Assert.AreEqual(0, linklist.Count);
+        }
     }
 }

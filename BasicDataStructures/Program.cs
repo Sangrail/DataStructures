@@ -2,8 +2,10 @@
 using BasicDataStructures.LinkedLists.Single;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,22 +33,30 @@ namespace BasicDataStructures
         static void Main(string[] args)
         {
             DLinkedList<int> dll = new DLinkedList<int>();
+
+            using (Stream stream = File.Open("data.bin", FileMode.Open))
+            {
+                BinaryFormatter bin = new BinaryFormatter();
+
+                var lizards2 = (DLinkedList<int>)bin.Deserialize(stream);                
+            }
  
             dll.Append(2);
             dll.Append(3);
-            dll.Append(3);
             dll.Append(4);
-
+     
             dll.Prepend(1);
-            dll.Prepend(0);
+            dll.Prepend(0);     
 
             PrintForwardList(dll);
 
-            PrintReverseList(dll);
+            using (Stream stream = File.Open("data.bin", FileMode.Create))
+            {
+                BinaryFormatter bin = new BinaryFormatter();
+                bin.Serialize(stream, dll);
+            }
 
-            dll.Remove(3);
-
-            PrintForwardList(dll);
+            
            
             Console.WriteLine("Press ANY key to continue");
             Console.ReadLine();

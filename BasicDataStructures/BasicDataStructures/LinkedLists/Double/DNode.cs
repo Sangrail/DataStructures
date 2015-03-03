@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BasicDataStructures.LinkedLists.Double
 {
+    [Serializable()]
     public class DNode<T>
     {
         public T Data { get; set; }
@@ -42,8 +43,7 @@ namespace BasicDataStructures.LinkedLists.Double
             newNode.Prev = Prev;
 
             Prev = newNode;
-            
-            
+                        
             newNode.Next = this;
 
             return newNode;

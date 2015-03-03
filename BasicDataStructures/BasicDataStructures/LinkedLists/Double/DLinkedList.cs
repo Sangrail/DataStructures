@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace BasicDataStructures.LinkedLists.Double
 {
-    public class DLinkedList<T>
+    [Serializable()]
+    public class DLinkedList<T> :
+        IEnumerable<T>
     {
         public DNode<T> Head { get; private set; }
         public DNode<T> Tail { get; private set; }
@@ -62,13 +65,42 @@ namespace BasicDataStructures.LinkedLists.Double
         {
             return new DListIterator<T>(this);
         }
+        /// <summary>
+        /// NOt sure what to do with this yet.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// This is the C# way to iterate (enumerate) elements
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            DNode<T> current = Head;
+
+            while (current != null)
+            {
+                yield return current.Data;
+                current = current.Next;
+            }
+        }   
         #endregion
 
         public void RemoveHead()
         {
             if (Count != 0)
             {
+                var node = Head;
 
+                Head = Head.Next;
+
+                node.Prev = null;
+                node.Next = null;
+                node = null;
             }
         }
 
